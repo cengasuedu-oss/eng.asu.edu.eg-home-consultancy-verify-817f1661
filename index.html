@@ -1252,12 +1252,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // 2. جلب البيانات من ملف data.json المرفوع على نفس المسار
-    fetch('data.json')
-        .then(response => {
-            if (!response.ok) throw new Error("لم يتم العثور على ملف البيانات");
-            return response.json();
-        })
+   // التعديل: إضافة ./ لضمان القراءة من نفس المجلد على الرابط الجديد
+fetch('./data.json')
+    .then(response => {
+        if (!response.ok) throw new Error("لم يتم العثور على ملف البيانات");
+        return response.json();
+    })
         .then(allData => {
             const project = allData[projectId];
 
